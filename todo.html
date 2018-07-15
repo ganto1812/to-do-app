@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="style" href="todo.css">
+</head>
+
+<body>
+<h1>
+    To Do App
+</h1>
+<p>
+    This is a to do list app! 
+</p>
+<p>
+    Try it out and add something to the list.
+</p>
+<div>
+    <button onclick="handlers.toggleAll()" class="btn">
+        Toggle all
+    </button>
+</div>
+
+<div>
+    <button onclick="handlers.addTodo()">
+        Add
+    </button>
+    <input id="addText" type="text">
+</div>
+
+<div>
+    <button onclick="handlers.changeTodo()">changeTodo</button>
+    <input id="changePosition" type="number">
+    <input id="changeText" type"text">
+</div>
+
+<div>
+    <button onclick="handlers.deleteTodo()">Delete</button>
+    <input id="deletePosition" type="number">
+</div>
+
+<div>
+    <button onclick="handlers.toggleCompleted()">Toggle Completed</button>
+    <input id="completedPosition" type="number">
+</div>
+
+<div>
+    <ul>
+
+    </ul>
+</div>
+
+
+<script src="todo.js"></script>
+</body>
+</html>
