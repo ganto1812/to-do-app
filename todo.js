@@ -26,23 +26,25 @@ let todoList = {
         let totalTodos = this.todos.length;
         let completedTodos = 0;
 
-        for (let i=0; i<totalTodos; i++) {
-            if (this.todos[i].completed === true) {
+
+        this.todos.forEach(function(todo) {
+            if (todo.completed === true) {
                 completedTodos++;
+            }            
+        });
+
+        this.todos.forEach(function(todo) {
+            if (completedTodos === totalTodos) {
+                todo.completed = false;
             }
-        }
-        if (totalTodos === completedTodos) {
-            for (let i=0; i<totalTodos; i++) {
-                this.todos[i].completed = false;
+            else {
+                todo.completed = true;
             }
-        }
-        else {
-            for (let i=0; i<totalTodos; i++) {
-                this.todos[i].completed = true;
-            }
-        }
+        })
     }
 };
+
+
 //handlers
 
 let handlers = {
@@ -67,7 +69,7 @@ let handlers = {
     toggleCompleted: function() {
         let completedPosition =  document.getElementById('completedPosition');
         todoList.toggleCompleted(completedPosition.valueAsNumber);
-        completedPosition = '';
+        completedPosition.value = '';
         view.displayTodos();
 
     },
@@ -82,9 +84,8 @@ let view = {
         let todosUl = document.querySelector('ul');
         todosUl.innerHTML = '';
 
-        for (let i = 0; i < todoList.todos.length; i++) {   
+        todoList.todos.forEach(function(todo, position) {
             let todoLi = document.createElement('li');
-            let todo = todoList.todos[i];
             let todoTextCompleted = '';
 
             if (todo.completed === true) {
@@ -94,12 +95,13 @@ let view = {
                 todoTextCompleted = '( ) ' + todo.todoText;
             }
 
-            todoLi.id = i;
+            todoLi.id = position;
             todoLi.textContent = todoTextCompleted;
             todoLi.appendChild(this.createDeleteBtn());
             todosUl.appendChild(todoLi);
-        }
+        }, this);             
     },
+
     createDeleteBtn:function () {
         let deleteBtn = document.createElement('button');
         deleteBtn.textContent = 'x';
