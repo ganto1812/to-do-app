@@ -1,0 +1,56 @@
+
+body {
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #888;
+}
+
+h1 {
+  font-size: 100px;
+  color: rgb(197, 197, 197);
+}
+
+p {
+font-size: 20px;
+}
+
+ul {
+  font-size: 30px;
+  list-style-type: none;
+  margin: 50px 300px;
+  padding: 0;
+}
+
+ul li {
+  position: relative;
+
+}
+
+ul li.checked {
+    background: rgb(226, 226, 226);
+    color: #fff;
+    text-decoration: line-through;
+  }
+
+ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    top: 2px;
+    left: 100px;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+    height: 30px;
+    width: 10px;
+  }
+
+  .fas {
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    height: 25px;
+    position: absolute;
+    top: 10px;
+    right: 100px;
+  }

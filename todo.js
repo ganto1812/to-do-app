@@ -17,11 +17,6 @@ let todoList = {
         this.todos.splice(position, 1);
     },
 
-    toggleCompleted: function(position) {
-        let todo = this.todos[position];
-        todo.completed = !todo.completed;
-    },
-
     toggleAll: function() {
         let totalTodos = this.todos.length;
         let completedTodos = 0;
@@ -66,17 +61,11 @@ let handlers = {
         todoList.deleteTodo(position);
         view.displayTodos();
     },
-    toggleCompleted: function() {
-        let completedPosition =  document.getElementById('completedPosition');
-        todoList.toggleCompleted(completedPosition.valueAsNumber);
-        completedPosition.value = '';
-        view.displayTodos();
 
-    },
     toggleAll: function() {
         todoList.toggleAll();
         view.displayTodos();
-    }
+    },
 };
 
 let view = {
@@ -86,42 +75,45 @@ let view = {
 
         todoList.todos.forEach(function(todo, position) {
             let todoLi = document.createElement('li');
-            let todoTextCompleted = '';
-
-            if (todo.completed === true) {
-                todoTextCompleted = '(X) ' + todo.todoText;
-            }
-            else {
-                todoTextCompleted = '( ) ' + todo.todoText;
-            }
 
             todoLi.id = position;
-            todoLi.textContent = todoTextCompleted;
-            todoLi.appendChild(this.createDeleteBtn());
+            todoLi.textContent = todo.todoText;
+            todoLi.appendChild(this.createDelete());
             todosUl.appendChild(todoLi);
-        }, this);             
+            if (todo.completed === true) {
+                todoLi.classList.add('checked')
+            }
+        }, this);
     },
 
-    createDeleteBtn:function () {
-        let deleteBtn = document.createElement('button');
-        deleteBtn.textContent = 'x';
-        deleteBtn.className = 'deleteBtn';
+    createDelete:function () {
+        let deleteBtn = document.createElement('i');
+        deleteBtn.className = 'fas fa-trash-alt';
         return deleteBtn;
     },
+
     setUpEventListener: function () {
         let todosUl = document.querySelector('ul');
         todosUl.addEventListener('click', function(event) {
-            console.log(event.target.parentNode.id);
 
             let elementClicked = event.target;
-            if (elementClicked.className === 'deleteBtn') {
+            if (elementClicked.className === 'fas fa-trash-alt') {
                 handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
+            }
+            else if (elementClicked.tagName === 'LI') {
+                elementClicked.classList.toggle('checked');
+                if (elementClicked.className === 'checked') {
+                    todoList.todos[elementClicked.id].completed = true;
+                }
+                else {
+                    todoList.todos[elementClicked.id].completed = false;
+                }
             }
 
         });
-    }
-};
+    },
 
+};
 
 view.setUpEventListener();
 

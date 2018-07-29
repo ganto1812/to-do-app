@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="style" href="todo.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="todo.css">
 </head>
 
 <body>
 <h1>
-    To Do App
+    To Do
 </h1>
 <p>
     This is a to do list app! 
@@ -14,11 +15,6 @@
 <p>
     Try it out and add something to the list.
 </p>
-<div>
-    <button onclick="handlers.toggleAll()" class="btn">
-        Toggle all
-    </button>
-</div>
 
 <div>
     <button onclick="handlers.addTodo()">
@@ -34,13 +30,13 @@
 </div>
 
 <div>
-    <button onclick="handlers.toggleCompleted()">Toggle Completed</button>
-    <input id="completedPosition" type="number">
+    <button onclick="handlers.toggleAll()" class="btn">
+        Toggle all
+    </button>
 </div>
 
-<div>
+<div class="todos">
     <ul>
-
     </ul>
 </div>
 
