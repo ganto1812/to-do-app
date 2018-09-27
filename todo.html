@@ -17,20 +17,20 @@
 </p>
 
 <div>
-    <button onclick="handlers.addTodo()">
+    <button id="btnAdd" class="visibleBtn" onclick="handlers.addTodo()">
         Add
     </button>
-    <input id="addText" type="text">
+    <input id="addText" class="input" type="text">
 </div>
 
 <div>
-    <button onclick="handlers.changeTodo()">changeTodo</button>
-    <input id="changePosition" type="number">
-    <input id="changeText" type"text">
+    <button onclick="handlers.changeTodo()" class="visibleBtn">Change To Do</button>
+    Number <input id="changePosition" class="input" type="number">
+    Name <input id="changeText" class="input" type"text">
 </div>
 
 <div>
-    <button onclick="handlers.toggleAll()" class="btn">
+    <button onclick="handlers.toggleAll()" class="btn visibleBtn">
         Toggle all
     </button>
 </div>

@@ -10,7 +10,7 @@ let todoList = {
     },
 
     changeTodo: function(position, todoText) {
-        this.todos[position].todoText = todoText;
+        this.todos[position-1].todoText = todoText;
     },
 
     deleteTodo: function(position) {
@@ -45,6 +45,12 @@ let todoList = {
 let handlers = {
     addTodo: function() {
         let addText = document.getElementById('addText');
+        //input.addEventListener('keyUp', function(event) {
+            //event.preventDefault();
+           // if (event.keyCode === 13) {
+            //    document.getElementById("btnAdd").click();
+           // }
+        //});
         todoList.addTodo(addText.value);
         addText.value = '';
         view.displayTodos();
