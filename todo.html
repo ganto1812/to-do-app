@@ -6,41 +6,44 @@
 </head>
 
 <body>
-<h1>
-    To Do
-</h1>
-<p>
-    This is a to do list app! 
-</p>
-<p>
-    Try it out and add something to the list.
-</p>
-
-<div>
-    <button type="button" id="btnAdd" class="visibleBtn" onclick="handlers.addTodo()">
-        Add
-    </button>
-    <input id="addText" class="input" type="text" required>
-</div>
-
-<div>
-    <button onclick="handlers.changeTodo()" id="btnchange" class="visibleBtn">Change To Do</button>
-    Number <input id="changePosition" class="input" type="number">
-    Name <input id="changeText" class="input" type="text">
-</div>
-
-<div>
-    <button onclick="handlers.toggleAll()" class="btn visibleBtn">
-        Toggle all
-    </button>
-</div>
-
-<div class="todos">
-    <ul>
-    </ul>
-</div>
-
-
-<script src="todo.js"></script>
+    <div class="container">
+        
+        <h1>
+            To Do List
+        </h1>
+        <p>
+            Do you have something to do? 
+        </p>
+        <p>
+            Then add it to the list.
+        </p>
+    
+        <div>
+            <button type="button" id="btnAdd" class="visibleBtn" onclick="handlers.addTodo()">
+                Add
+            </button>
+            <input id="addText" class="input" type="text" required>
+        </div>
+    
+        <div>
+            <button onclick="handlers.changeTodo()" id="btnchange" class="visibleBtn">Change To Do</button>
+            <input id="changePosition" placeholder="#" class="input" type="number">
+            <input id="changeText" class="input" type="text">
+        </div>
+    
+        <div>
+            <button onclick="handlers.toggleAll()" class="btn visibleBtn">
+                Toggle all
+            </button>
+        </div>
+    
+        <div class="todos">
+            <ul>
+            </ul>
+        </div>
+    
+    
+        <script src="todo.js"></script>
+    </div>
 </body>
 </html>
