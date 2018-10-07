@@ -17,16 +17,16 @@
 </p>
 
 <div>
-    <button id="btnAdd" class="visibleBtn" onclick="handlers.addTodo()">
+    <button type="button" id="btnAdd" class="visibleBtn" onclick="handlers.addTodo()">
         Add
     </button>
-    <input id="addText" class="input" type="text">
+    <input id="addText" class="input" type="text" required>
 </div>
 
 <div>
-    <button onclick="handlers.changeTodo()" class="visibleBtn">Change To Do</button>
+    <button onclick="handlers.changeTodo()" id="btnchange" class="visibleBtn">Change To Do</button>
     Number <input id="changePosition" class="input" type="number">
-    Name <input id="changeText" class="input" type"text">
+    Name <input id="changeText" class="input" type="text">
 </div>
 
 <div>
