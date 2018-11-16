@@ -12,9 +12,6 @@ h1 {
   margin: 50px auto 0px;
 }
 
-p {
-}
-
 button {
   margin: 10px;
   border: none;
@@ -42,6 +39,7 @@ ul {
 ul li {
   color: gray;
   position: relative;
+  border: 1px groove rgb(78, 78, 78);
 }
 
 ul li.checked {
@@ -57,7 +55,7 @@ ul li.checked::before {
   border-color: white;
   border-style: solid;
   top: 10%;
-  left: 1vw;
+  margin: 0 -30px;
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
   height: 15px;
@@ -70,7 +68,7 @@ ul li.checked::before {
   height: 25px;
   position: absolute;
   top: 5px;
-  right: 100px;
+  margin: 0 20px;
   font-size: 18px;
 }
 
@@ -96,8 +94,6 @@ ul li.checked::before {
   ul {
     margin: 50px;
   }
-  ul li.checked::before {
-    left: 80px;
   }
   .fas {
     font-size: 15px;
