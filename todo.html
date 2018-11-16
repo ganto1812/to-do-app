@@ -1,46 +1,47 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="todo.css">
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>To do List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+      integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="todo.css" />
+  </head>
 
-<body>
-<h1>
-    To Do
-</h1>
-<p>
-    This is a to do list app! 
-</p>
-<p>
-    Try it out and add something to the list.
-</p>
+  <body>
+    <h1>To Do</h1>
+    <p>This is a to do list app!</p>
+    <p>Try it out and add something to the list.</p>
 
-<div>
-    <button id="btnAdd" class="visibleBtn" onclick="handlers.addTodo()">
+    <div>
+      <button id="btnAdd" class="visibleBtn" onclick="handlers.addTodo()">
         Add
-    </button>
-    <input id="addText" class="input" type="text">
-</div>
+      </button>
+      <input id="addText" class="input" type="text" />
+    </div>
 
-<div>
-    <button onclick="handlers.changeTodo()" class="visibleBtn">Change To Do</button>
-    Number <input id="changePosition" class="input" type="number">
-    Name <input id="changeText" class="input" type"text">
-</div>
+    <div>
+      <button onclick="handlers.changeTodo()" class="visibleBtn">
+        Change To Do
+      </button>
+      Number <input id="changePosition" class="input" type="number" /> Name
+      <input id="changeText" class="input" type="text" />
+    </div>
 
-<div>
-    <button onclick="handlers.toggleAll()" class="btn visibleBtn">
+    <div>
+      <button onclick="handlers.toggleAll()" class="btn visibleBtn">
         Toggle all
-    </button>
-</div>
+      </button>
+    </div>
 
-<div class="todos">
-    <ul>
-    </ul>
-</div>
+    <div class="todos"><ul></ul></div>
 
-
-<script src="todo.js"></script>
-</body>
+    <script src="todo.js"></script>
+  </body>
 </html>
