@@ -1,6 +1,16 @@
+let todos_str
 let todoList = {
 
     todos: [],
+
+    fetchTodoList: function() {
+        let todos_str = localStorage.getItem('todo');
+        let todos_completed = localStorage.getItem('completed');
+        if (todos_str != null) {
+            this.todos = JSON.parse(todos_str);
+        }
+        return this.todos;
+    },
 
     addTodo: function(todoText) {
         this.todos.push({
@@ -45,15 +55,12 @@ let todoList = {
 let handlers = {
     addTodo: function() {
         let addText = document.getElementById('addText');
-        //input.addEventListener('keyUp', function(event) {
-            //event.preventDefault();
-           // if (event.keyCode === 13) {
-            //    document.getElementById("btnAdd").click();
-           // }
-        //});
-        todoList.addTodo(addText.value);
-        addText.value = '';
-        view.displayTodos();
+        if (addText.value !== "") {
+            todoList.addTodo(addText.value);
+            addText.value = '';
+            view.displaySaveTodos()
+        }
+        ;  
     },
     changeTodo:function() {
         let changePosition = document.getElementById('changePosition');
@@ -61,21 +68,21 @@ let handlers = {
         todoList.changeTodo(changePosition.valueAsNumber, changeText.value);
         changePosition.value = '';
         changeText.value = '';
-        view.displayTodos();
+        view.displaySaveTodos();
     },
     deleteTodo: function(position) {
         todoList.deleteTodo(position);
-        view.displayTodos();
+        view.displaySaveTodos();
     },
 
     toggleAll: function() {
         todoList.toggleAll();
-        view.displayTodos();
+        view.displaySaveTodos();
     },
 };
 
 let view = {
-    displayTodos: function() {
+    displaySaveTodos: function() {
         let todosUl = document.querySelector('ul');
         todosUl.innerHTML = '';
 
@@ -90,6 +97,8 @@ let view = {
                 todoLi.classList.add('checked')
             }
         }, this);
+        localStorage.setItem('todo', JSON.stringify(todoList.todos));
+        return false;
     },
 
     createDelete:function () {
@@ -114,6 +123,7 @@ let view = {
                 else {
                     todoList.todos[elementClicked.id].completed = false;
                 }
+                view.displaySaveTodos();
             }
 
         });
@@ -122,7 +132,23 @@ let view = {
 };
 
 view.setUpEventListener();
+todoList.fetchTodoList();
+view.displaySaveTodos();
 
-
+// Event listeners for key enter
+document.getElementById("addText")
+    .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        document.getElementById("btnAdd").click();
+    }
+});
+document.getElementById("changeText")
+    .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        document.getElementById("btnchange").click();
+    }
+});
 
 
