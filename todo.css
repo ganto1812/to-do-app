@@ -1,10 +1,19 @@
+:root {
+  --dark: #5e4747;
+  --normal: rgb(90, 78, 78);
+  --light: #b7a5a5;
+  --background: #dfd5d5;
+  --button: white;
+}
+
 * {
   box-sizing: border-box;
   text-align: center;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  color: gray;
+  color: var(--dark);
   font-size: 20px;
+  background-color: var(--background);
 }
 
 h1 {
@@ -16,15 +25,16 @@ button {
   margin: 10px;
   border: none;
   padding: 10px;
-  color: white;
-  background-color: darkgray;
+  color: var(--button);
+  background-color: var(--dark);
 }
 
 input {
   text-align: center;
   margin: 5px;
-  color: gray;
-  background-color: whitesmoke;
+  color: var(--normal);
+  background-color: var(--button);
+  border: none;
 }
 #changePosition {
   width: 50px;
@@ -37,14 +47,14 @@ ul {
 }
 
 ul li {
-  color: gray;
+  color: var(--normal);
   position: relative;
-  border: 1px groove rgb(78, 78, 78);
+  border: 1px groove rgba(78, 78, 78, 0.055);
 }
 
 ul li.checked {
-  background-color: Grey;
-  color: white;
+  background-color: var(--normal);
+  color: black;
   text-decoration: line-through;
   opacity: 0.6;
 }
@@ -55,7 +65,7 @@ ul li.checked::before {
   border-color: white;
   border-style: solid;
   top: 10%;
-  margin: 0 -30px;
+  margin: 0 -60px;
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
   height: 15px;
@@ -68,7 +78,7 @@ ul li.checked::before {
   height: 25px;
   position: absolute;
   top: 5px;
-  margin: 0 20px;
+  margin: 0 60px;
   font-size: 18px;
 }
 
@@ -94,9 +104,12 @@ ul li.checked::before {
   ul {
     margin: 50px;
   }
+  ul li.checked::before {
+    margin: 0 -30px;
   }
   .fas {
     font-size: 15px;
+    margin: 0 20px;
   }
 }
 
@@ -113,15 +126,14 @@ ul li.checked::before {
 
   ul {
     font-size: 15px;
-    margin: 1px;
+    margin: 30px 0;
   }
   ul li.checked::before {
-    left: 30px;
     width: 2px;
     height: 8px;
+    margin: 0 -30px;
   }
   .fas {
     font-size: 8px;
-    right: 30px;
   }
 }
